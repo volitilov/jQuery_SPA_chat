@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SPA chapter 2</title>
+
+    <!-- таблица стилей -->
+    <link rel="stylesheet" href="css/spa.css" />
+
+    <!-- стороний ЖаваСкрипт -->
+    <script src="js/jq/jquery-3.2.1.js"></script>
+    <script src="js/jq/jquery.uriAnchor.js"></script>
+
+    <!-- мой ЖаваСкрипт -->
+    <script src="js/spa.js"></script>
+    <script src="js/spa.shell.js"></script>
+    
+    <script>
+      $(function() { spa.initModule($('#spa')) });
+    </script>
+  </head>
+  <body>
+    <section id="spa"></section>
+  </body>
+</html>

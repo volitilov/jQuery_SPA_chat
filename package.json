@@ -1,0 +1,32 @@
+{
+  "name": "jQuery_SPA_chat",
+  "description": "Пример чата сделанного в виде веб приложения (SPA) и написанного на jQuery.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volitilov/jQuery_SPA_chat.git"
+  },
+  "author": "volitilov <volitilov@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "gulp"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/volitilov/jQuery_SPA_chat/issues"
+  },
+  "homepage": "https://github.com/volitilov/jQuery_SPA_chat#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "del": "^3.0.0",
+    "eslint": "^4.5.0",
+    "eslint-plugin-import": "^2.7.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-eslint": "^4.0.0",
+    "gulp-less": "^3.3.2"
+  },
+  "dependencies": {}
+}
