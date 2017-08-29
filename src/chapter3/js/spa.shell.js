@@ -25,15 +25,20 @@ spa.shell = (function() {
       + '<div class="spa-shell-chat"></div>'
       + '<div class="spa-shell-modal"></div>',
 
-      chat_extend_time: 1000,
+      chat_extend_time: 600,
       chat_retract_time: 300,
       chat_extend_height: 450,
       chat_retract_height: 15,
+      chat_extended_title : 'Щелкните, чтобы свернуть',
+      chat_retracted_title : 'Щелкните, чтобы раскрыть',
     },
-    stateMap = { $container: null },
+    stateMap = { 
+      $container: null,
+      is_chat_retracted : true
+    },
     jqueryMap = {},
 
-    setJqueryMap, initModule, toggleChat;
+    setJqueryMap, initModule, toggleChat, onClickChat;
   //--------- КОНЕЦ ПЕРЕМЕННЫХ В ОБЛАСТИ ВИДИМОСТИ МОДУЛЯ ---------
 
 
@@ -66,6 +71,9 @@ spa.shell = (function() {
   // Возвращает : булево значение
   // * true – анимация окна чата начата
   // * false – анимация окна чата не начата
+  // Состояние : устанавливает stateMap.is_chat_retracted
+  // * true – окно свернуто
+  // * false – окно раскрыто
   //
   toggleChat = function(do_extend, callback) {
     let
@@ -83,6 +91,10 @@ spa.shell = (function() {
         { height: configMap.chat_extend_height },
         configMap.chat_extend_time,
         function() {
+          jqueryMap.$chat.attr(
+            'title', configMap.chat_extended_title
+          );
+          stateMap.is_chat_retracted = false;
           if (callback) { callback( jqueryMap.$chat ); }
         }
       );
@@ -95,6 +107,10 @@ spa.shell = (function() {
       { height: configMap.chat_retract_height },
       configMap.chat_retract_time,
       function() {
+        jqueryMap.$chat.attr(
+          'title', configMap.chat_retracted_title
+        );
+        stateMap.is_chat_retracted = true;
         if (callback) { callback( jqueryMap.$chat ); }
       }
     );
@@ -106,7 +122,15 @@ spa.shell = (function() {
 
 
   //--------- НАЧАЛО ОБРАБОТЧИКОВ СОБЫТИЙ -------------------------
+  onClickChat = function( event ) {
+    if ( toggleChat( stateMap.is_chat_retracted ) ) {
+      $.uriAnchor.setAnchor({
+        chat: ( stateMap.is_chat_retracted ? 'open': 'closed' )
+      })
+    }
 
+    return false;
+  };
   //--------- КОНЕЦ ОБРАБОТЧИКОВ СОБЫТИЙ --------------------------
 
 
@@ -118,9 +142,11 @@ spa.shell = (function() {
     $container.html( configMap.main_html );
     setJqueryMap();
 
-    // тестировать переключение
-    setTimeout( function () {toggleChat( true ); }, 3000 );
-    setTimeout( function () {toggleChat( false );}, 8000 );
+    // инициализировать окно чата и привязать обработчик щелчка
+    stateMap.is_chat_retracted = true;
+    jqueryMap.$chat
+      .attr( 'title', stateMap.chat_retracted_title )
+      .click( onClickChat );
   };
   // Конец открытого метода /initModule/
 
