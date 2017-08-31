@@ -3,8 +3,7 @@
 * Модуль Shell для SPA
 */
 
-/*eslint-disable no-unused-vars*/
-/*global $, spa*/
+/*global spa*/
 
 
 spa.shell = (function() {

@@ -1,0 +1,76 @@
+/* 
+* spa.css
+* стили в корневом пространтсве имён 
+*/
+
+// :::::::::::::::::::::::::::::::::::::::::::::::::::
+// Начало установки начальных значений
+
+@import './reset.less';
+
+// Конец установки начальных значений
+// :::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+// :::::::::::::::::::::::::::::::::::::::::::::::::::
+/* Начало стандартных селекторов */
+body {
+  // font: 14px Verdana, Helvetica, Arial, sans-serif;
+  font-family: "Consolas", "Bitstream Vera Sans Mono", 
+               "Courier New", Courier, monospace !important;
+  color: #444;
+  background-color: #ddd; 
+}
+
+a {
+  text-decoration: none;
+  &:link, &:visited {
+    color: inherit;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+strong {
+  font-weight: 800;
+  color: #000;
+}
+/* Конец стандартных селекторов */
+// ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+// ::::::::::::::::::::::::::::::::::::::::::::::::::
+// Начало служебных селекторов
+.spa-x-select {}
+.spa-x-clearfloat {
+  height: 0 !important;
+  float: none !important;
+  visibility: hidden !important;
+  clear: both !important;
+}
+// Конец служебных селекторов
+// ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+// ::::::::::::::::::::::::::::::::::::::::::::::::::
+// Начало селекторов в пространстве имён spa
+#spa {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  border-radius: 6px;
+  background-color: #fff;
+  min-height: 500px;
+  min-width: 500px;
+  overflow: hidden;
+}
+// Конец селекторов в пространстве имён spa
+// ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+// :::::::::::::::::::::::::::::::: spa.shell
+@import './spa.shell.less';
