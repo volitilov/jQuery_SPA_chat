@@ -1,12 +1,22 @@
 <!DOCTYPE html>
+<!--
+  spa.html
+  HTML-документ SPA
+-->
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- поддержка последних стандартов в части отрисовки в ie9+ -->
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <title>SPA chapter 3</title>
 
-    <!-- таблица стилей -->
+    <!-- сторонние таблицы стилей -->
+
+    <!-- мои таблицы стилей -->
     <link rel="stylesheet" href="css/spa.css" />
 
     <!-- стороний ЖаваСкрипт -->
@@ -15,7 +25,10 @@
 
     <!-- мой ЖаваСкрипт -->
     <script src="js/spa.js"></script>
+    <script src="js/spa.util.js"></script>
+    <script src="js/spa.model.js"></script>
     <script src="js/spa.shell.js"></script>
+    <script src="js/spa.chat.js"></script>
     
     <script>
       $(function() { spa.initModule($('#spa')) });

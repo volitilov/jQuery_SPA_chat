@@ -1,12 +1,15 @@
 /*
 * spa.js
-* модуль корневого пространства имён
+* Модуль корневого пространства имен
 */
 
 
-const spa = (function() {
-  const initModule = $container =>
+var spa = (function() {
+  var initModule = function($container) {
+    // служебные действия ...
+    
     spa.shell.initModule( $container );
+  }
 
-  return { initModule: initModule };
+  return {initModule: initModule};
 }());
