@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+  spa.html
+  HTML-документ SPA
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- поддержка последних стандартов в части отрисовки в ie9+ -->
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>SPA chapter 5</title>
+
+    <!-- сторонние таблицы стилей -->
+    <link rel="stylesheet" href="css/lib/reset.css" />
+
+    <!-- мои таблицы стилей -->
+    <link rel="stylesheet" href="css/spa.css" />
+
+    <!-- стороний ЖаваСкрипт -->
+    <script src="js/jq/taffydb.js"></script>
+    <script src="js/jq/jquery-3.2.1.js"></script>
+    <script src="js/jq/jquery.uriAnchor.js"></script>
+    <script src="js/jq/jquery.event.gevent.js"></script>
+    <script src="js/jq/jquery.event.ue.js"></script>
+
+    <!-- мой ЖаваСкрипт -->
+    <script src="js/spa.js"></script>
+    <script src="js/spa.util.js"></script>
+    <script src="js/spa.data.js"></script>
+    <script src="js/spa.fake..js"></script>
+    <script src="js/spa.model.js"></script>
+    <script src="js/spa.util_b.js"></script>
+    <script src="js/spa.shell.js"></script>
+    <script src="js/spa.chat.js"></script>
+    <script src="js/spa.avtr.js"></script>
+    
+    <script>
+      $(function() { spa.initModule($('#spa')) });
+    </script>
+
+    <!-- <script>
+      $( 'body' ).append( '<div id="spa-chat-list-box"/>' );
+
+      var $listbox = $( '#spa-chat-list-box' );
+      $listbox.css({
+        position: 'absolute', 'z-index' : 3,
+        top : 50, left : 50, width : 50, height :50,
+        border : '2px solid black', background : '#fff'
+      });
+
+      var onListChange = function ( event, update_map ) {
+        $( this ).html( update_map.list_text );
+        alert( 'onListChange ran' );
+      };
+
+      $.gevent.subscribe(
+        $listbox,
+        'spa-listchange',
+        onListChange
+      );
+
+      $.gevent.publish(
+        'spa-listchange',
+        [ { list_text : 'the list is here' } ]
+      );
+      
+      $listbox.remove();
+      $.gevent.publish( 'spa-listchange', [ {} ] );
+    </script> -->
+  </head>
+  <body>
+    <section id="spa"></section>
+  </body>
+</html>
